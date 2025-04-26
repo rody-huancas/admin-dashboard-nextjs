@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import Navbar from "@/components/Navbar";
@@ -23,7 +24,10 @@ export const metadata: Metadata = {
   description: "A simple admin dashboard template",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const cookieStore = await cookies()
+  const defaultOpen = cookieStore.get("sidebar_state")?.value === "true"
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -35,8 +39,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider>
+          <SidebarProvider defaultOpen={defaultOpen}>
             <AppSidebar />
+
             <main className="w-full">
               <Navbar />
             
