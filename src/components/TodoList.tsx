@@ -1,16 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { format, set } from "date-fns";
+import { format } from "date-fns";
 
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
+import { Calendar } from "./ui/calendar";
 import { Checkbox } from "./ui/checkbox";
 import { ScrollArea } from "./ui/scroll-area";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
 import { CalendarIcon } from "lucide-react";
-import { Calendar } from "./ui/calendar";
 
 const todoItems = [
   { id: "item1", text: "Terminar el proyecto de React", completed: true },
