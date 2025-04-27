@@ -18,6 +18,8 @@ import { Progress } from "@/components/ui/progress";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { BadgeCheck, Candy, Citrus, Shield } from "lucide-react";
 import EditUser from "@/components/EditUser";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import AppLineChart from "@/components/AppLineChart";
 
 const SingleUserPage = () => {
   return (
@@ -165,9 +167,28 @@ const SingleUserPage = () => {
         {/* RIGHT */}
         <div className="w-full xl:w-2/3 space-y-6">
           {/* USER CARD CONTAINER */}
-          <div className="bg-primary-foreground p-4 rounded-lg">User Card</div>
+          <div className="bg-primary-foreground p-4 rounded-lg space-y-3">
+            <div className="flex items-center gap-2">
+              <Avatar className="size-12">
+                <AvatarImage src="https://avatars.githubusercontent.com/u/119058766" />
+                <AvatarFallback>RH</AvatarFallback>
+              </Avatar>
+
+              <h1 className="text-xl font-semibold">Rody Huancas</h1>
+            </div>
+
+            <p className="text-sm text-muted-foreground">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+              eligendi ipsam quod nostrum! Dicta quaerat molestiae assumenda
+              eos, rem esse? Excepturi accusantium nesciunt odit, facilis est
+              minima autem. Velit, similique.
+            </p>
+          </div>
           {/* CHART CONTAINER */}
-          <div className="bg-primary-foreground p-4 rounded-lg">Chart</div>
+          <div className="bg-primary-foreground p-4 rounded-lg space-y-7">
+            <h1 className="text-xl font-semibold">Actividad del Usuario</h1>
+            <AppLineChart />
+          </div>
         </div>
       </div>
     </div>
