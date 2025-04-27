@@ -42,7 +42,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           <SidebarProvider defaultOpen={defaultOpen}>
             <AppSidebar />
 
-            <main className="w-full">
+            <main className="w-full pb-5">
               <Navbar />
             
               <div className="px-4">{children}</div>
