@@ -60,9 +60,11 @@ const Navbar = () => {
           <DropdownMenuContent sideOffset={10}>
             <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <User className="h-[1.2rem] w-[1.2rem] mr-2" />
-              Perfil
+            <DropdownMenuItem asChild>
+              <Link href="/users/rody">
+                <User className="h-[1.2rem] w-[1.2rem] mr-2" />
+                Perfil
+              </Link >
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Settings className="h-[1.2rem] w-[1.2rem] mr-2" /> Configuración
