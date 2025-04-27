@@ -13,8 +13,11 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { BadgeCheck, Candy, Citrus, Shield } from "lucide-react";
+import EditUser from "@/components/EditUser";
 
 const SingleUserPage = () => {
   return (
@@ -107,7 +110,16 @@ const SingleUserPage = () => {
           </div>
           {/* INFORMATION CONTAINER */}
           <div className="bg-primary-foreground p-4 rounded-lg">
-            <h1 className="text-xl font-semibold">Información del Usuario</h1>
+            <div className="flex items-center justify-between">
+              <h1 className="text-xl font-semibold">Información del Usuario</h1>
+
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button>Editar Usuario</Button>
+                </SheetTrigger>
+                <EditUser />
+              </Sheet>
+            </div>
 
             <div className="space-y-4 mt-4">
               <div className="flex flex-col gap-2 mb-8">
