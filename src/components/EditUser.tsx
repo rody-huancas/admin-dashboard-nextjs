@@ -58,11 +58,15 @@ const EditUser = () => {
     defaultValues: {
       username: "rodyhuancas",
       email: "rodyhuancas@correo.com",
-      phone: "+51 999 999 999",
+      phone: "999999999",
       location: "Chiclayo, Perú",
       role: "administrador",
     },
   });
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values)
+  }
 
   return (
     <SheetContent>
@@ -70,7 +74,7 @@ const EditUser = () => {
         <SheetTitle className="mb-4">Editar Usuario</SheetTitle>
         <SheetDescription asChild>
           <Form {...form}>
-            <form className="space-y-8">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
                 control={form.control}
                 name="role"
@@ -146,7 +150,7 @@ const EditUser = () => {
                         <SelectTrigger className="w-full">
                           <SelectValue placeholder="Rol" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent {...field}>
                           <SelectItem value="admin">Administrador</SelectItem>
                           <SelectItem value="user">Usuario</SelectItem>
                         </SelectContent>
